@@ -1,9 +1,8 @@
 from random import randint
 
+class Loup:
 
-class Mouton:
-
-    def __init__(self, position, taux_reproduction=4, gain_nourriture=4):
+    def __init__(self, position, taux_reproduction=5, gain_nourriture=19):
         self.position = position
         self.gain_nourriture = gain_nourriture
         self.energie = randint(1, 2) * self.gain_nourriture
@@ -17,9 +16,9 @@ class Mouton:
             randJ = (randJ + 1) % dimension
         elif randI == -1 or randJ == -1:
             if randI == -1:
-                randI = (randI -1 +dimension) % dimension
+                randI = (randI - 1 + dimension) % dimension
             if randJ == -1:
-                randJ = (randJ -1 +dimension) % dimension
+                randJ = (randJ - 1 + dimension) % dimension
         return (randI, randJ)
 
     def setPosition(self, i, j):

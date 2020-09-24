@@ -7,7 +7,7 @@ class Monde:
     def __init__(self, dimension, duree_repousse = 30):
         if dimension < 50:
             self.dimension = 50
-        else :
+        else:
             self.dimension = dimension
 
         self.duree_repousse = duree_repousse
@@ -31,11 +31,14 @@ class Monde:
         if self.carte[i][j] >= self.duree_repousse:
             self.carte[i][j] = 0
 
+    def getGrassToEat(self, i, j):
+        return self.carte[i][j] >= self.duree_repousse
+
     def nbHerbe(self):
         count = 0
         for i in range(self.dimension):
             for j in range(self.dimension):
-                if self.carte[i][j] >= self.duree_repousse :
+                if self.carte[i][j] >= self.duree_repousse:
                     count += 1
         return count
 
@@ -54,17 +57,4 @@ class Monde:
     def afficheMap(self):
         print(self.carte)
 
-    def numberUnderZero(self):
-        count = 0
-        for i in range(self.dimension):
-            for j in range(self.dimension):
-                if self.carte[i][j] <= self.duree_repousse:
-                    count += 1
-        print(count)
-
-monde = Monde(50)
-monde.afficheMap()
-monde.herbePousse()
-monde.afficheMap()
-monde.numberUnderZero()
 
